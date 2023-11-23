@@ -34,4 +34,4 @@ jobs:
           kill $(cat ./pid.file)
           rm -f /home/apps/ilyas/web-spring.jar
           cp -f /home/apps/ilyas/web-spring/target/web-spring-0.0.1-SNAPSHOT.jar /home/apps/ilyas/web-spring.jar
-          ./start_silent.sh
+          java -jar /home/apps/ilyas/web-spring.jar & echo $! > ./pid.file
