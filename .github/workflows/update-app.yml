@@ -19,4 +19,4 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 30m
         script: | 
-          cd /home/apps/ilyas/web-spring/ && mvn clean package && java -jar target/web-spring-0.0.1-SNAPSHOT.jar
+          cd /home/apps/ilyas/web-spring/ && mvn clean package && java -jar target/web-spring-0.0.1-SNAPSHOT.jar >> output.txt
