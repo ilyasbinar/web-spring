@@ -19,4 +19,4 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 30m
         script: | 
-          cd /home/apps/ilyas/web-spring && ./stop.sh && ./start_silent.sh
+          cd /home/apps/ilyas/web-spring && git pull && ./stop.sh && ./start_silent.sh
