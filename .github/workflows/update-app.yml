@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - name: print out run update
+    - name: print out run update git and compile
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: 203.194.113.54
@@ -21,7 +21,16 @@ jobs:
           cd /home/apps/ilyas/web-spring 
           git pull origin main
           mvn clean install
+    - name: print out run update apps
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: 203.194.113.54
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        command_timeout: 30m
+        script: | 
+          cd /home/apps/ilyas/web-spring 
           kill $(cat ./pid.file)
           cp -f /home/apps/ilyas/web-spring/target/web-spring-0.0.1-SNAPSHOT.jar /home/apps/ilyas/web-spring.jar
           ./start_silent.sh
-          echo "Selesai"
