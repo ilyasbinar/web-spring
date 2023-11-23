@@ -19,4 +19,4 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 30m
         script: | 
-          cd /home/apps/ilyas/web-spring/ && nohup bash start.sh > /dev/null 2>&1 &
+          cd /home/apps/ilyas/web-spring/ && git pull && mvn clean package && kill -9 $(lsof -t -i:8080) && nohup bash start.sh > /dev/null 2>&1 &
