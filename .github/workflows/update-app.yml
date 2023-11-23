@@ -13,7 +13,7 @@ jobs:
     - name: print out example job
       uses: appleboy/ssh-action@v0.1.10
       with:
-        host: ${{ inputs.hostname }}
+        host: 203.194.113.54
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
