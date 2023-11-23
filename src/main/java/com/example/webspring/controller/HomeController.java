@@ -10,6 +10,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public List<String> greeting(){
-        return List.of("Hallo", "Binar Keren aja");
+        return List.of("Hallo", "Binar Keren banget");
     }
 }
