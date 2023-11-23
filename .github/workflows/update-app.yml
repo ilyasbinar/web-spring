@@ -19,4 +19,4 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 30m
         script: | 
-          uname -a
+          cd /home/apps/ilyas/web-spring/ && mvn clean package
