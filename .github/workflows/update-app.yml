@@ -1,0 +1,22 @@
+# See https://zellwk.com/blog/github-actions-deploy/ an explanation of this code
+name: deploy
+on:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  run_update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: print out run update
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: 203.194.113.54
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        command_timeout: 30m
+        script: | 
+          cd /home/apps/ilyas/web-spring && git pull && ./stop.sh && ./start_silent.sh
