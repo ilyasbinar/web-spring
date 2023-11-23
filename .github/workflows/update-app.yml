@@ -19,6 +19,9 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 30m
         script: | 
-          cd /home/apps/ilyas/web-spring && git pull && mvn clean package 
+          cd /home/apps/ilyas/web-spring 
+          git pull origin master
+          mvn clean install
+          cp /home/apps/ilyas/web-spring/target/web-spring-0.0.1-SNAPSHOT.jar /home/apps/ilyas/web-spring.jar
           ./stop.sh 
           ./start_silent.sh
